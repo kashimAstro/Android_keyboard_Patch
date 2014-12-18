@@ -15,7 +15,7 @@ Below is what I did, and all the files I touched:
 This piece takes care of launching the system keyboard in android sdk.
 ofxAndroid->ofAndroidLib->OFAndroid.java:
 
-<tt>
+```
 public void dyna_keyboardShow(){
 		try{
 		    final InputMethodManager inputMgr = (InputMethodManager)ofActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -25,7 +25,7 @@ public void dyna_keyboardShow(){
 		    System.out.println("catch:"+e);
 		}
 	}
-</tt>
+```
 
 here the jni for communication with the method java
 ofxAndroid->src->ofAppAndroidWindow.cpp:

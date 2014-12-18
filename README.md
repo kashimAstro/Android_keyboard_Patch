@@ -30,7 +30,7 @@ public void dyna_keyboardShow(){
 here the jni for communication with the method java
 ofxAndroid->src->ofAppAndroidWindow.cpp:
 
-<code>
+```
 void ofAppAndroidWindow::dyna_keyBoardShow() {
    ofLog(OF_LOG_NOTICE,"start keyboard show");
    jclass javaClass = ofGetJNIEnv()->FindClass("cc/openframeworks/OFAndroid");
@@ -47,43 +47,43 @@ void ofAppAndroidWindow::dyna_keyBoardShow() {
       ofGetJNIEnv()->NewObject(javaClass,method);
       }
    }
-</code>
+```
 
 function declaration
 ofAppAndroidWindow.h:
 
-<code>
+```
 void dyna_keyBoardShow();
-</code>
+```
 
 to make available the method level ofAppRunner I did this:
 ofAppRunner.cpp:
 
-<code>
+```
 void dynaKeyShow() {
    window->dyna_keyBoardShow();
 }
-</code>
+```
 
 function declaration ofAppRunner.h:
 
-<code>
+```
 void dynaKeyShow();
-</code>
+```
 
 Then I added the virtual in ofAppBaseWindow.h
 
-<code>
+```
 virtual void dyna_keyBoardShow(){};
-</code>
+```
 
 I noticed the keyPressed basis of OF succeeds in catching keyboard events
 Android without the use of a "displathkeyevent" jni side, so I decided to unleash the keyboard on a ofxUITextInput, I have to do this trivially added to the inside of the method mousePressed between ifdef OFX_UI_TARGET_TOUCH of ofxUITextInput.cpp this:
 
-<code>
+```
 dynaKeyShow();
 ofLog(OF_LOG_NOTICE,"pressed UI");
-</code>
+```
 
 I hope it is useful for someone smile
 I will update the topic when I can to impute the TextInput
